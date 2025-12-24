@@ -100,15 +100,23 @@ button:hover {
   background: linear-gradient(#8fd1f2, #5b9bd5);
 }
 
-.hidden {
+.error {
+  margin-top: 16px;
+  font-size: 16px;
+  color: #a33;
   display: none;
 }
 
-.message {
-  margin-top: 20px;
-  font-size: 17px;
-  font-style: italic;
-  color: #444;
+/* Finální obrázek */
+#finalImage {
+  display: none;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000;
+  z-index: 10;
 }
 </style>
 </head>
@@ -132,18 +140,25 @@ button:hover {
     <br>
     <button onclick="unlock()">Pokračovat</button>
 
-    <div class="message hidden" id="message">
-      Seš moje šikulka.
+    <div class="error" id="error">
+      To není správně :P
     </div>
   </div>
 </div>
 
+<!-- Finální obrázek -->
+<img id="finalImage" src="obrazek11.jpg" alt="">
+
 <script>
 function unlock() {
-  if (document.getElementById("password").value === "jitus") {
-    document.getElementById("message").classList.remove("hidden");
+  const input = document.getElementById("password").value;
+  const error = document.getElementById("error");
+
+  if (input === "jitus") {
+    document.querySelector(".container").style.display = "none";
+    document.getElementById("finalImage").style.display = "block";
   } else {
-    alert("To není správně :P");
+    error.style.display = "block";
   }
 }
 </script>
