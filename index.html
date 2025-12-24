@@ -133,17 +133,17 @@ button:hover {
     <button onclick="unlock()">Pokračovat</button>
 
     <div class="message hidden" id="message">
-      Přístup byl povolen.
+      Seš moje šikulka.
     </div>
   </div>
 </div>
 
 <script>
 function unlock() {
-  if (document.getElementById("password").value === "heslo123") {
+  if (document.getElementById("password").value === "jitus") {
     document.getElementById("message").classList.remove("hidden");
   } else {
-    alert("Nesprávné heslo");
+    alert("To není správně :P");
   }
 }
 </script>
